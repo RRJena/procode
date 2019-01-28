@@ -1,0 +1,15 @@
+<html>
+<head>
+    <script type="text/javascript" src="/js2/pramukhime.js"></script>
+    <script type="text/javascript" src="/js2/pramukhindic.js"></script>
+</head>
+<body>
+    <input type="text" id="first_name">
+    <script language="javascript" type="text/javascript">
+        pramukhIME.addLanguage(PramukhIndic,"sanskrit"); 
+        pramukhIME.enable();
+    </script>
+    
+    <h1>Hello</h1>
+</body>
+</html>

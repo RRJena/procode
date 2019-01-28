@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    
+    <!-- 
+
+
+
+/*=============================================================
+    PRO IDE: FULLY MADE PUBLISHED
+    AUTHOR: RAKESH RANJAN JENA
+    WEBSITE: WWW.RRJ.WORLD,WWW.RRJPRINCE.COM
+    FACEBOOK: WWW.FACEBOOK.COM/RRJ.PRINCE
+    EMAIL: RAKESHRANJANJENA007@GMAIL.COM
+    EMAIL:RRJPRINCE@RRJPRINCE.COM
+    THANKS TO GOD AND MY MOM AND ALSO THE PEOPLE OVER INTERNET AND AROUND ME, WHO BLESSED ME FOR THIS.
+    SPECIAL THANKS TO GOOGLE AND THID WEBLAYOUT THEME PROVIDER
+   
+    ========================================================  */
+
+
+-->
+    
+    
+<head>
+      <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0, maximum-scale=1.0" />
+  
+    <title>PRO IDE</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    
+    
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../python_compressed.js"></script>
+  <script src="../../php_compressed.js"></script>
+  <script src="../../lua_compressed.js"></script>
+  <script src="../../dart_compressed.js"></script>
+  <script src="assets/js/detceZoom/detect-zoom.js"></script>
+  <script src="assets/js/acorn_interpreter.js"></script>
+<!--Language JS File to Define Language-->
+  <script src="../../msg/js/en.js"></script>
+<!--   -->
+<!--   Dynamic Toolbox JS File definced all Functions Init() Workspace Playground & Dynamic Blocks-->
+  <script src="../IDE/assets/js/protoolbox.js"></script>
+  <script src="../IDE/assets/js/uiop.js"></script>
+<!--    -->
+<script></script>
+</head>
+<body onload="loadWorkspace(); page_onReload();" style="">
+    <!-- Blank ToolBox-->
+    <xml id="toolbox" style="display: none"></xml> 
+    <!----- -->
+    <div id="wrapper" style="height:100%">
+            <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0 " > 
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">PRO IDE</a> 
+            </div>
+                
+  <div style="color: black;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;">
+      <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav> 
+        
+        
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation" >
+                <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu" style="height: 100%;">
+                
+                    
+                   
+                      
+				<li class="text-center">
+                <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+				</li>
+                 <select class="form-control" id="lang">
+        <option>Select Langauge</option>
+        <option>Hindi</option>
+        <option>Oriya</option>
+        <option>English</option>
+        <option>Telugu</option>
+        <option>Tamil</option>
+        <option>Bengali</option>
+        <option>Kannada</option>
+        <option>Malayalam</option>
+        <option>Gujurati</option>
+        <option>Marathi</option>
+        <option>Asami</option>
+        <option>Urdhu</option>
+      </select>     
+                    
+				<li onclick="getLogic()">
+                        <a  href="#"><i class="fa fa-logic fa-3x" id="logic" > </i> Logic</a>
+                </li>
+               
+                <li id="loop" onclick="getLoopBlock()">
+                        <a  href="#"><i class="fa fa-loops fa-3x" ></i> Loops</a>
+                </li>
+                <li onclick="getMathBlock()">
+                        <a  href="#"><i class="fa fa-math fa-3x"></i> Math</a>
+                </li>
+				<li onclick="getTextBlock()">
+                        <a   href="#"><i class="fa fa-text fa-3x"></i> Text</a>
+                 </li>	
+                <li onclick="getListBlock()">
+                        <a  href="#"><i class="fa fa-lists fa-3x"></i> Lists</a>
+                </li>
+                <li onclick="getColorBlock()">
+                        <a  href="#"><i class="fa fa-color fa-3x"></i> Color</a>
+                </li>				
+					
+				<li onclick="getVariableBlock()">
+                        <a  href="#"><i class="fa fa-variables fa-3x"></i> Variables</a>
+                </li>	                  
+                
+                <li onclick="getFunctionBlock()">
+                        <a  href="#"><i class="fa fa-functions fa-3x"></i> Functions</a>
+                </li>	
+                 
+                </ul>
+               
+            </div>
+                
+             </nav>  
+       
+        <!-- /. NAV SIDE  -->
+<ul class="nav nav-tabs" id="tabMenu">
+     <li  class="active"><a data-toggle="tab" href="#welcome">Welcome</a></li>
+    <li id="wrkspace"><a data-toggle="tab" href="#blocklyDiv">Workspace</a></li>
+    <li onclick="runCode()"><a data-toggle="tab" href="#output">Output</a></li>
+    <li  onclick='convertToPro("Java Script");'><a data-toggle="tab" href="#jscode">JS</a></li>
+    <li  onclick="convertToPro('Python');"><a data-toggle="tab" href="#pycode">Python</a></li>
+    <li  onclick="convertToPro('Lua');"><a data-toggle="tab" href="#luacode">Lua</a></li>
+    <li  onclick="convertToPro('PHP');"><a data-toggle="tab" href="#phpcode">PHP</a></li>
+    <li  onclick="convertToPro('Dart');"><a data-toggle="tab" href="#dartcode">Dart</a></li>
+    <li  onclick="convertToPro('XML');"><a data-toggle="tab" href="#xmlcode1">XML</a></li>
+   
+  </ul>
+        
+        <style>
+            #tabMenu{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 250px;
+                
+            }
+        
+        </style>
+        
+        <script>
+
+
+        </script>
+        
+          <div class="tab-content">
+             <div id="welcome" style="position:fixed;background-color: cadetblue;" class="taboutout page-inner tab-pane fade in active">
+      
+        <center><h1>Hello PROCODER</h1></center>
+         <div><center><p>Copyrigh(c)@2018,RRJ</p></center></div>
+              </div>     
+              
+            <div class="page-inner tab-pane fade in active" id="blocklyArea" style="height: 100%">
+                
+                
+             <!-- /. PAGE INNER  -->
+            </div>
+        <div id="blocklyDiv" style="position:fixed;background-color: cadetblue; height: 100% " class="tab  fade">
+        <!--<select class="form-control" id="select_code" onclick="convertToPro()">
+        <option>Convert to:</option>
+        <option> Java Script</option>
+        <option> Python</option>
+        <option>Lua</option>
+        <option>PHP</option>
+        <option>Dart</option>
+        <option>XML</option>
+        <option>Coming Shortly....</option>
+      </select>-->
+            
+            <a href="#" class="btn btn-warning square-btn-adjust" id="save">Save</a><a href="#" class="btn btn-success square-btn-adjust" id="run" onclick="runCode()">RUN</a><a href="#" class="btn btn-primary square-btn-adjust" id="copy">Copy</a><a href="#" class="btn btn-danger square-btn-adjust" id="delete" onclick="clearWorkspace()">Delete Program</a><a href="#" class="btn btn-info square-btn-adjust" id="help">Help</a><a href="#" class="btn btn-danger square-btn-adjust" id="close" align="right">Close App</a> 
+            
+            <center><h2 id="code_name" style="color:white;border: 1px;border-color: red;">Hello</h2></center>
+               
+           </div>
+              
+              
+         <div id="output" style="position:fixed;background-color: cadetblue; height: 100%; color: blueviolet;" class="taboutout page-inner tab-pane fade in active">
+      
+      
+    <p id="code_run"></p>
+      
+    
+    </div>
+    <div id="jscode" style="position:fixed;background-color: cadetblue; height: 100%;" class="taboutout page-inner tab-pane fade in active">
+        
+         <p id="code_js"></p>
+        
+    </div> 
+    <div id="pycode" style="position:fixed;background-color: cadetblue; height: 100%;" class="taboutout page-inner tab-pane fade in active" >
+        
+        <p id="code_py"></p>
+        
+    </div> 
+    <div id="phpcode" style="position:fixed;background-color: cadetblue; height: 100%;" class="taboutout page-inner tab-pane fade in active">
+        <p id="code_php"></p>
+        
+        
+    </div>
+    <div id="luacode" style="position:fixed;background-color: cadetblue; height: 100%;" class="taboutout page-inner tab-pane fade in active">
+       <p id="code_lua"></p>
+        
+    </div>
+    <div id="dartcode" style="position:fixed;background-color: cadetblue; height: 100%;" class="taboutout page-inner tab-pane fade in active">
+        <p id="code_dart"></p>
+        
+    </div>
+    <div id="xmlcode1" style="position:fixed;background-color: cadetblue; height: 100%;" class="taboutout page-inner tab-pane fade in active">
+        <p id="code_xml"></p>
+        
+    </div>
+    
+              
+              
+              
+              
+              <!-- /.tab Menu  -->
+              
+        </div>
+            <!-- /. PAGE WRAPPER  -->
+           </div>
+    
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+ 
+</body>
+</html>
